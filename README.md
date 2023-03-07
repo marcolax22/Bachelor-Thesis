@@ -44,6 +44,7 @@ The code is structered in different folders:
 In the data folder the following datasets can be found:
 
 - migrazensus_v1.csv
+    - Leininger, A. and Lagodny, J. (2021). Migrazensus.
 - migrazensus_codebook.pdf
 - migrazensus_v2.csv
 - migrazensus.csv
