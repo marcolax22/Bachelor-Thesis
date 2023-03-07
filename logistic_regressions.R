@@ -38,8 +38,9 @@ myProbit <- glm(type ~ indicator_vp + bevdichte, family = binomial( link = "prob
 
 summary(myProbit)
 
-myProbit_robust <- glm(type ~ indicator_vp + bevdichte + absolventen_hochschulreife, family = binomial( link = "probit" )
-                       ,data=candidates_all)
+myProbit_robust <- glm(type ~ indicator_vp + bevdichte + absolventen_hochschulreife, 
+                       family = binomial(link = "probit"),
+                       data=candidates_all)
 
 summary(myProbit)
 
@@ -104,12 +105,13 @@ table_prediction <- merge(x=table_prediction, y=migrazensus,
                           by="wknr_2021", all.x=FALSE)
 
 table_prediction <- table_prediction %>% 
-  dplyr::select(wknr_2021, land, indicator_vp.x, prediction_probit, prediction_heckit, wk_gewinner_mh.x, mh_total.x)
+  dplyr::select(wknr_2021, land, indicator_vp.x, prediction_probit, 
+                prediction_heckit, wk_gewinner_mh.x, mh_total.x)
 
 reality_prediction <- table_prediction %>% dplyr::filter(wk_gewinner_mh.x == 1) %>% 
                                            dplyr::select(-c(wk_gewinner_mh.x, mh_total.x))
                                    
-table_prediction$indicator_vp.x <- as.integer(table_prediction$indicator_vp.x)
+reality_prediction$indicator_vp.x <- as.integer(reality_prediction$indicator_vp.x)
 
 # Means and Median values of the succesful candidates in the federal election 2021
 
@@ -124,7 +126,7 @@ stargazer(reality_prediction)
 
 # print table
 
-print(xtable(reality_prediction, digits = 4), include.rownames = FALSE, include.colnames = FALSE, 
+print(xtable(reality_prediction, digits = 3), include.rownames = FALSE, include.colnames = FALSE, 
       sanitize.text.function = I)
 
 # ---------------------------------------------------------------------
@@ -149,9 +151,11 @@ reality_prediction <- table_prediction %>%
 
 table_top_bottom$indicator_vp.x <- as.integer(table_top_bottom$indicator_vp.x)
 
+table_top_bottom <- table_top_bottom %>% dplyr::select(-c(wk_gewinner_mh.x, mh_total.x))
+
 data.table::setDT(table_top_bottom)
 
-print(xtable(table_top_bottom, digits = 4), include.rownames = FALSE, include.colnames = FALSE, 
+print(xtable(table_top_bottom, digits = 3), include.rownames = FALSE, include.colnames = FALSE, 
       sanitize.text.function = I)
 
 
