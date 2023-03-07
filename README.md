@@ -46,7 +46,7 @@ In the data folder the following datasets can be found:
 - migrazensus_v1.csv
 - migrazensus_codebook.pdf
 - migrazensus_v2.csv
-- migrazensus
+- migrazensus.csv
 - vp_districts.Rds
 - election_2017.csv
 
