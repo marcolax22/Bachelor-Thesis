@@ -16,7 +16,6 @@ Thesis submitted on: 15.03.2023 </p>
     - [Data_prep](#data_prep)
     - [multinomial distributions](#multinomial-distributions)
     - [graphics](#graphics)
-- [Coding of the variables](#coding-of-the-variables)
 - [Citation](#citation)
 
 # Execute the code
