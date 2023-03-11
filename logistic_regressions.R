@@ -251,27 +251,15 @@ dev.off()
 
 
 # ---------------------------------------------------------------------
-# MAPS PREDICTION (APPENDIX)
+# MISSING DATA (APPENDIX)
 # ---------------------------------------------------------------------
 
 # Visualisation for appendix
 
-my_path_wahlkreise <- "btw_geometrie_wahlkreise_vg250_shp/Geometrie_Wahlkreise_19DBT_VG250.shp"
-file.exists(my_path_wahlkreise)
-wahlkreise_shp <- st_read(my_path_wahlkreise)
+migrazensus_na <- migrazensus %>% dplyr::filter(is.na(wk_zweiter_mh)) %>% 
+  dplyr::select(wknr_2021, land)
 
-wahlkreise_shp %>% 
-  left_join(table_prediction, by = c("WKR_NR" = "wknr_2021")) -> prediction_map
+data.table::setDT(migrazensus_na)
 
-prediction_map <- prediction_map %>% drop_na(prediction_probit)
-
-prediction_map %>% 
-  ggplot() +
-  geom_sf(aes(fill = prediction_probit)) -> p1
-p1
-
-p1 + scale_fill_distiller(palette = "rainbow", direction = 1) +
-  theme_void()
-
-
-
+print(xtable(migrazensus_na), include.rownames = FALSE, include.colnames = FALSE, 
+      sanitize.text.function = I)
