@@ -2,7 +2,7 @@
 
 <p> Marco Lax <br>
 Matrikelnumber: 01/990925 <br>
-Thesis submitted on: 16.03.2023 </p>
+Thesis submitted on: 15.03.2023 </p>
 
 ---
 
@@ -57,27 +57,20 @@ In this folder the maps for the electoral districts in Germany are stored. This 
 
 ## packages
 
-In this folder the R Code 'load.packages.R' will load every all the packages which are needed for the data preperation and analysation. In the code you can see which packages have been used, for example if you see the following commands:
-
-```R
-a <- sampleSelection::heckit(type ~ indicator_vp.y,
-                             log(wk_gewinnner_mh.y) ~ indicator_vp.y, data=candidates_all)
-```
-In this case the ```sampleSelection``` package was used to calculate the Heckman Selection model.
+In this folder the R Code 'load.packages.R' will load every all the packages which are needed for the data preparation and analyses. The code is loaded into each file and therefore this file does not need to be opened manually.
 
 ## Data_prep
 
-In this folder the data preperation is done. The project uses three different data sets and they had to be merged and filtered. All the preprocessing for further steps is done is this codes.
+In this folder the data preparation is done. The project uses three different data sets and they had to be merged and filtered. All the pre-processing for further steps is done is this code.
 
 ## multinomial distributions
 
-Here the calculations for each electoral districts in regards to the voting influence indicator can be found. Each state in Germany has a seperate code with the corresponding electoral districts. By executing each script ones starting of with the correct order, you will get in the end the completed dataset for the voting influence indicator for each district.
+Here the calculations for each electoral districts in regards to the voting influence indicator can be found. Each state in Germany has a separate code with the corresponding electoral districts. By executing each script ones starting of with the correct order, you will get in the end the completed data set for the voting influence indicator for each district.
 
 ## graphics
 
 In this folder all the graphics which are printed on the final thesis are saved.
 
-# Coding of the Variables
 
 # Citation
 
