@@ -87,3 +87,4 @@ migrazensus <- migrazensus %>% mutate(mh_total = wk_gewinner_mh + wk_zweiter_mh)
 
 write.csv(migrazensus_v2, "data/election_2017.csv", row.names=FALSE)
 write.csv(migrazensus, "data/migrazensus.csv", row.names = FALSE)
+
