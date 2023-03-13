@@ -68,6 +68,14 @@ myHeckit <- lm(wk_gewinner_mh ~ indicator_vp + IMR,
 
 summary(myHeckit)
 
+# This next heckit model is used to double check the results and the see the output with 
+# 223 censored observations and 51 observed observations.
+
+Heckit <- selection(type ~ indicator_vp + bevdichte, wk_gewinner_mh ~ indicator_vp,
+                         data = candidates_all, method = "2step" )
+
+summary(Heckit)
+
 # Predict y for each observation
 
 prediction_heckit <- predict(myHeckit, newdata = candidates_all, type = "response") 
