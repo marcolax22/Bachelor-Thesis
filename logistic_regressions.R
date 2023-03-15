@@ -183,18 +183,10 @@ stargazer(myHeckit, title="Heckman Selection Model", style= "default")
 
 # Calculation of the Average marginal effects
 
-cplot(myProbit, x = "nMdBs", ylim = c(0, 1),
-      xlab = "Anzahl MdBs im Wahlkreis", ylab = "Wahrscheinlichkeit für Wahlkreisfokus",
-      main = "Abb. 6: Effekt der Anzahl der Abgeordneten \n im Wahlkreis auf die Wahrscheinlichkeit \n eines Wahlkreisfokus",
-      sub = "Logit Regression")
-
 indicator <- cplot(myProbit, x = "indicator_vp", ylim = c(0, 1))
 bevdichte <- cplot(myProbit, x = "bevdichte", ylim = c(0, 1), xlim = c(0, 4500))
-cplot
 
 summary(margins(myProbit, change="minmax"))
-
-plot(model1)
 
 # ---------------------------------------------------------------------
 # VISUALISATION FOR THE REALITY (APPENDIX)
